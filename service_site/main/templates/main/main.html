@@ -1,12 +1,341 @@
 <!DOCTYPE html>
-<html>
+{% load static %}
+<html lang="en">
 <head>
-  <link rel="stylesheet" type="text/css" href="static/css/styles.css">
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Virtusos</title>
+    <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/2.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/simplebar.css' %}">
 </head>
 <body>
+<div class="main-scrin">
+    <div class="main-container">
+        <header class="header-main">
+            <div class="logo"><a href="{% url 'base' %}">Virtuoos</a></div>
+            <nav class="menu">
+                <li><a href="{% url 'service' %}">Услуги</a></li>
+                <li><a href="#">Акции</a></li>
+                <li><a href="#">Отзывы</a></li>
+                <li><a href="#">Контакты</a></li>
+            </nav>
+            {% if user.is_authenticated %}
+            <button onclick="location.href ='/account'" class="sign-in">Личный кабинет</button>
+            <button onclick="location.href ='/logout'" class="sign-in">Выйти</button>
+            {% else %}
+            <button onclick="location.href ='/auth'" class="sign-in">Войти</button>
+            <button onclick="location.href ='/register'" class="sign-in">Регистрация</button>
+            {% endif %}
 
-<h1>This is a heading</h1>
-<p>This is a paragraph.</p>
+        </header>
+        <div class="main-title">
+            <h1>Virtuoos</h1>
+            <p>Автосервис по ремонту и обслуживанию легковых автомобилей</p>
+            <button>Записаться на СТО</button>
+        </div>
+    </div>
 
+</div>
+<main>
+    <div class="container">
+        <div class="container-choosing-car">
+            <h2>Выберите тип вашего авто</h2>
+            <div class="choosing-car">
+                <div class="car-model" id="car-model">
+                    <img src="{% static 'main/img/малый.png' %}" alt="Описание изображения">
+                    <p>Малый класс</p>
+                </div>
+                <div class="car-model" id="car-model" onclick="location.href ='/service'">
+                    <img src="{% static 'main/img/средний.png' %}" alt=""/>
+                    <p>Средний класс</p>
+                </div>
+                <div class="car-model" id="car-model">
+                    <img src="{% static 'main/img/бизнес.png' %}" alt=""/>
+                    <p>Бизнес класс</p>
+                </div>
+                <div class="car-model" id="car-model">
+                    <img src="{% static 'main/img/бизнес-плюс.png' %}" alt=""/>
+                    <p>Бизнес+ класс</p>
+                </div>
+                <div class="car-model" id="car-model">
+                    <img src="{% static 'main/img/кросссовер.png' %}" alt=""/>
+                    <p>Кроссовер</p>
+                </div>
+                <div class="car-model" id="car-model">
+                    <img src="{% static 'main/img/внедорожник.png' %}" alt=""/>
+                    <p>Внедорожник</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-application">
+        <div class="application">
+            <p>Быстрое оформление заявки</p>
+            <button>Автосервис сегодня</button>
+        </div>
+    </div>
+    <div class="container">
+        <div class="container-services">
+            <h3>Наши Услуги</h3>
+            <div class="container-card">
+                <div class="services-card photo-1">
+                    <a href="#"><img src="{% static 'main/img/подвески.png' %}" alt=""/></a>
+                    <p>
+                        качественные аммортизаторы из германии
+                    </p>
+                </div>
+                <div class="services-card photo-2">
+                    <a href="#"><img src="{% static 'main/img/топливная система.png' %}" alt=""/></a>
+                    <p>
+                        топливные и фильтры для всех моделей авто
+                    </p>
+                </div>
+                <div class="services-card photo-3">
+                    <a href="#"><img src="{% static 'main/img/шиномонтаж.png' %}" alt=""/></a>
+                    <p>
+                        шиномонтаж под ключ
+                    </p>
+                </div>
+                <div class="services-card photo-4">
+                    <a href="#"><img src="{% static 'main/img/техобслуживание.png' %}" alt=""/></a>
+                    <p>
+                        дешёвые и качественные запчасти
+                    </p>
+                </div>
+                <div class="services-card photo-5">
+                    <a href="#"><img src="{% static 'main/img/тормозная система.png' %}" alt=""/></a>
+                    <p>
+                        замена тормозных колодок с гарантией
+                    </p>
+                </div>
+                <div class="services-card photo-6">
+                    <a href="#"><img src="{% static 'main/img/охлаждение.png' %}" alt=""/></a>
+                    <p>
+                        замена радиатора любой сложности
+                    </p>
+                </div>
+                <div class="services-card photo-7">
+                    <a href="#"><img src="{% static 'main/img/двигатель.png' %}" alt=""/></a>
+                    <p>
+                        только проверенные контрактные моторы с гаранией
+                    </p>
+                </div>
+                <div class="services-card photo-8">
+                    <a href="#"><img src="{% static 'main/img/трансмиссия.png' %}" alt=""/></a>
+                    <p>
+                        высшее качество запчастей для коробки передач
+                    </p>
+                </div>
+                <div class="services-card span-9">
+                    <a href="#"></a>
+                    <div class="content-servise">
+                        <p>Все услуги</p>
+                        <span><img src="{% static 'main/img/стрелка.svg' %}" alt=""/></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-about">
+            <h4>Почему выбирают нас?</h4>
+            <div class="about-programm">
+                <a href="#" class="programm-card personal-account">
+                    <p class="paragraff-personal-account">Личный Кабинет Клиента</p>
+                    <p>для отслеживания всех этапов работы</p>
+                    <img src="{% static 'main/img/чеклист.svg' %}" alt=""/>
+                    <button>Вход/Регистрация</button>
+                </a>
+                <a href="#" class="programm-card bonus">
+                    <div class="programm-bonus">
+                        <p class="paragraf-programm-bonus">Бонусная программа</p>
+                        <p>*для авторизованных пользователей</p>
+                    </div>
+                    <img src="{% static 'main/img/бонус.png' %}" alt=""/>
+                </a>
+                <a href="#" class="programm-card card-reviews">
+                    <div class="programm-reviews">
+                        <p>Примеры работ до/после</p>
+                        <img src="{% static 'main/img/стрелка черная.png' %}" alt=""/>
+                    </div>
+                    <p>Отзывы</p>
+                </a>
+                <a href="#" class="programm-card contact">
+                    <div class="programm-contact">
+                        <p>Запрос обратного звонка</p>
+                        <img src="{% static 'main/img/навигация.png' %}" alt=""/>
+                    </div>
+                    <p>Контакты</p>
+                </a>
+                <a href="#" class="programm-card calculator">
+                    <p>Онлайн запись и Калькулятор стоимости услуг</p>
+                </a>
+            </div>
+        </div>
+
+        <div class="container-reviews">
+            <h5>Отзывы</h5>
+            <div class="slideshow-container">
+                <div class="mySlides fade">
+                    <div class="reviews-photo">
+                        <div class="reviews-photo-1">
+                            <img src="{% static 'main/img/до.png' %}" alt=""/>
+                            <p>До</p>
+                        </div>
+                        <div class="reviews-photo-2">
+                            <img src="{% static 'main/img/после.png' %}" alt=""/>
+                            <p>После</p>
+                        </div>
+                    </div>
+                    <div class="reviews-text">
+                        <div class="header-reviews-text">
+                            <div class="person">
+                                <img src="{% static 'main/icons/аватар.png' %}" alt="" class="yandex"/>
+                                <div class="name-date">
+                                    <p class="name">Влад Р</p>
+                                    <p class="date">15 июля 2023</p>
+                                </div>
+                            </div>
+                            <img src="{% static 'main/icons/оценка.png' %}" alt="" class="reting"/>
+                        </div>
+                        <style style="inline-size: none;"></style>
+                        <p class="comment">
+                            мой Volkswagen tiguan, после дтп был мягко говоря не очень,
+                        я думал что ремонт будет очень дорогим, либо не очень качественным,
+                        но ребята сделали качественно за приемлеммые деньги.
+                        </p>
+                        <div class="buttons-slider">
+                            <button
+                                    class="prev"
+                                    type="button"
+                                    aria-label="Посмотреть предыдущий отзыв"
+                                    onclick="plusSlides(-1)"
+                            >
+                                &lt;
+                            </button>
+                            <button
+                                    class="next"
+                                    type="button"
+                                    aria-label="Посмотреть следующий отзыв"
+                                    onclick="plusSlides(1)"
+                            >
+                                &gt;
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="mySlides fade">
+                    <div class="reviews-photo">
+                        <div class="reviews-photo-1">
+                            <img src="{% static 'main/img/До_2.jpg' %}" alt=""/>
+                            <p>До</p>
+                        </div>
+                        <div class="reviews-photo-2">
+                            <img src="{% static 'main/img/После_2.jpg' %}" alt=""/>
+                            <p>После</p>
+                        </div>
+                    </div>
+                    <div class="reviews-text">
+                        <div class="header-reviews-text">
+                            <div class="person">
+                                <img src="{% static 'main/icons/аватар.png' %}" alt="" class="yandex"/>
+                                <div class="name-date">
+                                    <p class="name">Аркадий О</p>
+                                    <p class="date">15 июля 2023</p>
+                                </div>
+                            </div>
+                            <img src="{% static 'main/icons/оценка.png' %}" alt="" class="reting"/>
+                        </div>
+                        <p class="comment">
+                            мой лансер не был настолько хорош даже когда я его покупал
+                        </p>
+                        <div class="buttons-slider">
+                            <button
+                                    class="prev"
+                                    type="button"
+                                    aria-label="Посмотреть предыдущий отзыв"
+                                    onclick="plusSlides(-1)"
+                            >
+                                &lt;
+                            </button>
+                            <button
+                                    class="next"
+                                    type="button"
+                                    aria-label="Посмотреть следующий отзыв"
+                                    onclick="plusSlides(1)"
+                            >
+                                &gt;
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-contact">
+            <div class="map">
+                <iframe
+                        src="https://yandex.ru/map-widget/v1/?um=constructor%3Adbfea27d26ae5dc82057a360d90f202ced691325b39b178bdf4f4cd9022fbcdf&amp;source=constructor"
+                        width="100%"
+                        height="100%"
+                        frameborder="0"
+                ></iframe>
+            </div>
+            <div class="section-contact">
+                <h6>Контакты</h6>
+                <div class="contact">
+                    <div class="contact-card address">
+                        <p>Адрес</p>
+                        <div class="content-adress">
+                            <img src="{% static 'main/icons/геолокация.png' %}" alt=""/>
+                            <p>г. Екатеринбург, ул Шейнкмана, 123</p>
+                        </div>
+                    </div>
+                    <div class="contact-card time-work">
+                        <p>Время работы</p>
+                        <div class="content-time-work">
+                            <img src="{% static 'main/icons/время.png' %}" alt=""/>
+                            <p>пн - вс: 10:00 - 20:00</p>
+                        </div>
+                    </div>
+                    <div class="contact-card number">
+                        <p>Связаться с нами</p>
+                        <div class="content-number-email">
+                            <div class="content-number">
+                                <img src="{% static 'main/icons/телефон.png' %}" alt=""/>
+                                <p>+7 (343) 317-93-33</p>
+                            </div>
+                            <div class="content-email">
+                                <img src="{% static 'main/icons/почта.png' %}" alt=""/>
+                                <p>virtuoos@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main-scrin-footer">
+        <div class="main-container-footer">
+            <footer class="footer-main">
+                <div class="logo"><a href="#">Virtuoos</a></div>
+                <nav class="menu">
+                    <li><a href="#">Услуги</a></li>
+                    <li><a href="#">Акции</a></li>
+                    <li><a href="#">Отзывы</a></li>
+                    <li><a href="#">Контакты</a></li>
+                </nav>
+                <nav class="social">
+                    <li><a href=""><img src="{% static 'main/icons/vk_icon.png' %}" alt=""></a></li>
+                    <li><a href=""><img src="{% static 'main/icons/whatsapp_icon.png' %}" alt=""></a></li>
+                    <li><a href=""><img src="{% static 'main/icons/telegram_icon.png' %}" alt=""></a></li>
+                </nav>
+            </footer>
+        </div>
+    </div>
+</main>
+
+
+<script src="{% static 'main/js/slider.js' %}"></script>
 </body>
 </html>
